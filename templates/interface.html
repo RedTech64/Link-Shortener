@@ -1,0 +1,32 @@
+<html>
+  <body>
+    <form action="/a">
+      Link<br>
+      <input type="text" name="link"><br>
+      Short<br>
+      <input type="text" name="short"><br>
+      <input type="submit" value="Add">
+    </form>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+      }
+    </style>
+    <table>
+      <tr>
+        <th>Short</th>
+        <th>Link</th>
+        <th>Views</th>
+        <th>Delete</th>
+      </tr>
+      {% for link in links %}
+      <tr>
+        <td>{{link.short}}</td>
+        <td>{{link.link}}</td>
+        <td>{{link.views}}</td>
+        <td><form action="/d"><a href="/d?short={{link.short}}"><button type="button">D</button></form></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

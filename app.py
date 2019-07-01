@@ -19,7 +19,7 @@ def catch_all(path):
         data = data.to_dict()
         link = "{}".format(data[u"link"]);
         db.collection(u'links').document(path).update({'views': data[u"views"]+1})
-        return render_template('redirect.html',links=link)
+        return render_template('redirect.html',link=link)
     except Exception as e:
         print(e)
         return "404"
